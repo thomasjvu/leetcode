@@ -39,4 +39,4 @@ const threeConsecutiveOdds = arr => {
 // Use a while loop to check while the index is less than the length of the array - 2 because we want to check for 3 numbers
 // if the indexes i, i+1, and i+2 have a modulus that isn't equal to 0, that means they are all odd so return true
 // add i to the count after each loop
-// return false otherwise
+// return false at the end of the loop if otherwise
