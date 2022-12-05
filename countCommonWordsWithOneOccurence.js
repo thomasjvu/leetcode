@@ -48,8 +48,14 @@ const countWords = (words1, words2) => {
         hash[word] = hash[word] + 1 || 1
     }
 
+    for (const key in hash) {
+        if (hash[key] >= 2) {
+            hash[key] = 100
+        }
+    }
+
     for (const word of words2) {
-        hash[word] = hash[word] + 1 || 1
+        hash[word] = 0 || hash[word] + 1
     }
 
     for (const key in hash) {
@@ -63,8 +69,13 @@ const countWords = (words1, words2) => {
 // Explanation
 // Initialize a variable that will hold the count of common words with one occurence in each array (count)
 // Initialize a hashmap (hash = {})
+
 // Iterate through the words1 array using a for..of loop, where if the word exists as a property in the hashmap add 1 to it, otherwise create a new property for it equal to 1
-// Do the same for the words2 array
+// Iterate through the hashmap and if there are any properties with a value greater than 1, reassign it to be equal to something greater than 2 (in this case, 100)
+ 
+// Iterate through the words2 array using a for..of loop, where if the word exists as a property in the hashmap, set it equal to 0, otherwise add the property to the map and set it equal to 1
+
 // Use a for..in loop to iterate through each property in the hash table
-// If the property in the hash table is equal to 2, that means it occured once in both arrays, so add 1 to the count
+// If the property in the hash table is equal to 2, that means it occurred once in both arrays, so add 1 to the count
+
 // Return the count
