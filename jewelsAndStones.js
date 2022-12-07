@@ -45,6 +45,27 @@ const numJewelsInStones = (jewels, stones) => {
 
 }
 
+
+// Leon's Solution
+/*
+ * function findJewels(jewels, stones) {
+ *  const map = {}
+ *  let count = 0
+ *
+ *  for (const jewel of jewels) {
+ *      map[jewel] = true
+ *
+ *  }
+ *
+ *  for (const stone of stones) {
+ *  if (map[stone]) {
+ *          count++
+ *      }
+ *  }
+ *
+ * }
+*/
+
 // Explanation
 // Declare a new variable named count that is set equal to 0
 // Loop through eaach character in the stones string
