@@ -31,9 +31,12 @@ Constraints:
 */
 
 // Solution
-const myPow = function(x, n) {
-    return Math.pow(x,n)
-}
+// const myPow = function(x, n) {
+//     return Math.pow(x,n)
+// }
+
+// Refactored
+const myPow = (x, n) => x ** n
 
 // Explanation
 // Use the `Math.pow()` method to easily raise x to the power of n
