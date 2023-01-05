@@ -29,6 +29,7 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 */
 
 // Solution
+/*
 const isAnagram = (s, t) => {
     const map1 = {}
     const map2 = {}
@@ -55,6 +56,7 @@ const isAnagram = (s, t) => {
 
     return true
 }
+*/
 
 // Explanation
 // Initiate 2 empty map objects, one for every letter of s, and one for every letter of t
@@ -62,3 +64,34 @@ const isAnagram = (s, t) => {
 // Then, loop through each key in map1, and if its value isn't equal to that of map2 with the same key, return false
 // Then, loop through each key in map2, and if its value isn't equal to that of map1 with the same key, return false
 // Otherwise, that means s and t are valid anagrams, in which case we return true
+
+// Another Solution
+const isAnagram = (s, t) => {
+    // If the lengths of the strings are different, they cannot be anagrams
+    if (s.length !== t.length) return false;
+
+    // Create an object to store the frequency of each character
+    const frequency = {};
+
+    // Loop through the characters in s and t
+    for (let i = 0; i < s.length; i++) {
+        const sChar = s[i]; // The character in s
+        const tChar = t[i]; // The character in t
+
+        // If the character exists in the frequency object, increment its count
+        if (frequency[sChar]) {
+            frequency[sChar]++;
+        } else {
+            frequency[sChar] = 1;
+        }
+
+        // If the character exists in the frequency object, decrement its count
+        if (frequency[tChar]) {
+            frequency[tChar]--;
+        } else {
+            frequency[tChar] = -1;
+        }
+    }
+
+    return Object.values(frequency).every(count => count === 0)
+};
