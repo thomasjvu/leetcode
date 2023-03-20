@@ -55,6 +55,6 @@ const truncateSentence = function(s, k) {
         trunc.push(s[i])
     }
 
-    // return the trunc array joined together with spaces between each word
+    // return the trunc array joined together with spaces between each word.
     return trunc.join(' ')
 }
