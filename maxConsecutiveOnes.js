@@ -48,3 +48,20 @@ const findMaxConsecutiveOnes = (nums) => {
     // after the loop ends, return max
     return max
 };
+
+// Solution (sliding window)
+const findMaxConsecutiveOnes1 = (nums) => {
+    // use pointers left and right to create a sliding window
+    let left = 0, right = 0, max = 0
+    // move the 'right' pointer to the right until we find a 0
+    while (right < nums.length) {
+        // when we find a 0, update the maximum number of consecutive 1s seen so far (by taking the maximum of the current maximum and the size of the window), and move the left pointer to the right of the 0, effectively sliding the window to the right. continue the process until the end of the array is reached
+        if (nums[right] === 0) {
+            max = Math.max(max, right - left)
+            left = right + 1
+        }
+        right++
+    }
+
+    return Math.max(max, right - left)
+}
