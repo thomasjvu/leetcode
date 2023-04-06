@@ -88,11 +88,11 @@ SELECT u.name, COALESCE(SUM(r.distance), 0) AS travelled_distance
 FROM Users u
 LEFT JOIN Rides r
 ON r.user_id = u.id
-GROUP BY u.name
+GROUP BY u.id, u.name
 ORDER BY travelled_distance DESC, name ASC
 
 -- Select the name from the users Table
 -- Use the COALESCE keyword to return 0 for any null values from the SUM of distance for each name
 -- LEFT JOIN the Rides table on the Rides.user_id = Users.id
--- GROUP BY the users.name column
+-- GROUP BY the users.id column
 -- and first ORDER BY the traveled_distance in descending order, then the name in ascending
