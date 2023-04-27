@@ -47,3 +47,25 @@ const subtractProductAndSum = (n) => {
     // return difference between product and sum
     return product - sum
 }
+
+// Explanation
+// Time Complexity: O(n), Linear Time
+
+// Solution 2
+const subtractProductAndSum = (n) => {
+    let product = 1;
+    let sum = 0;
+    while (n > 0) {
+        // get the last digit using modulo bc that will be the remainder
+        const digit = n % 10;
+        product *= digit
+        sum += digit
+        // remove the last digit by dividing the number by 10 and getting the floor value.
+        n = Math.floor(n / 10)
+    }
+
+    return product - sum
+}
+
+// Explanation
+// Time Complexity: O(n), Linear Time
