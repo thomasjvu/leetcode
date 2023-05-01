@@ -42,7 +42,23 @@ const maximumWealth = accounts => {
 }
 
 // Explanation
+// Time Complexity: O (n log n) - .sort() method is O(n log n)
 // Loop through each element of the accounts array (and these elements will be arrays themselves)
 // For each iteration, use the .reduce() method to sum the items in each subarray
 // Then, use the .sort() method to sort the array in place in descending order
 // Finally, return the first element of the accounts array, which will be the richest customer's wealth
+
+// Solution (Refactored)
+const maximumWealth = (accounts) => {
+    // loop through each array, and change inner array to its reduced value (total wealth of each customer)
+    for (let i = 0; i < accounts.length; i++) {
+        accounts[i] = accounts[i].reduce((acc, curr) => acc + curr, 0)
+    }
+
+    return Math.max(...accounts)
+}
+// Explanation
+// Time Complexity: O(n)
+// Math.max time complexity is O(n)
+// Array.reduce time complexity is O(n)
+// For Loop time complexity is O(n)
