@@ -47,14 +47,25 @@ Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 */
 
 // Solution
-
 function merge(nums1, m, nums2, n) {
 
-    for (let i = 0; i < nums2.length; i++) {
-        if (nums2[i] < nums1[i]) {
-            nums1.splice((i-1), (0), (nums2[i]))
-            nums1.pop()
+    let i = m - 1 // last element of nums1
+    let j = n - 1 // last element of nums2
+    let k = m + n - 1 // last element of nums1 with nums2 spaces (0)
+
+    // loop while an element in nums2 still remains
+    while (j >= 0) {
+        // if element at nums1 is greater than element at nums2 and isn't 0
+        // set the element at the end of the combined array (going backwards) to be the last nums1 element
+        if (i >= 0 && nums1[i] > nums2[j]) {
+            nums1[k--] = nums1[i--]
+        // otherwise, we the element at the end of the combined array (going backwarsd) to be the last nums2 element
+        } else {
+            nums1[k--] = nums2[j--]
         }
     }
-
 };
+
+// Explanation
+// Because we want the array to be sorted in place inside of the nums1 array, we must set the iterator at nums2 in our while loop (j)
+// During each iteration, the decrementor (--) will give us the correct element and also change the index of the array being used
