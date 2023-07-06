@@ -45,4 +45,4 @@ const sortBy = (arr, fn) => {
 // The .sort() method takes two arguments, a and b.
 // To sort in ascending order, the formula is .sort((a, b) => a - b)
 // Simply add the given `fn` argument in front of each .sort argument
-// This will sort the array correctly, so return that answer
+// This will sort the array correctly in ascending order based on the `fn` output.
